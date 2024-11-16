@@ -1,5 +1,5 @@
 {
-	"geode": "4.0.0-alpha.1",
+	"geode": "4.0.0-beta.1",
 	"gd": {
 		"win": "2.2074",
 		"android": "2.2074",
@@ -7,7 +7,7 @@
 	},
 	"id": "alphalaneous.vanilla_pages",
 	"name": "Vanilla Pages",
-	"version": "v1.0.2-alpha.1",
+	"version": "v1.0.2",
 	"developer": "Alphalaneous",
 	"description": "Adds Pages to Vanilla Menus",
 	"dependencies": [
@@ -23,7 +23,7 @@
         }
     ],
 	"links": {
-        "homepage": "https://twitter.com/alphalaneous",
+        "homepage": "https://linktr.ee/Alphalaneous",
         "source": "https://github.com/Alphalaneous/Vanilla-Pages",
         "community": "https://discord.gg/Txn2CA5dHF"
     },
