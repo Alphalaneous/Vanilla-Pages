@@ -21,14 +21,22 @@ class $modify(PagePauseLayer, PauseLayer) {
 
             int childrenCount = centerMenu->getChildrenCount();
 
-            RowLayout* layout = RowLayout::create();
-            layout->setGrowCrossAxis(true);
-            layout->setCrossAxisOverflow(false);
-            layout->setAxisAlignment(AxisAlignment::Center);
-            layout->setCrossAxisAlignment(AxisAlignment::Center);
-            layout->setCrossAxisLineAlignment(AxisAlignment::Center);
-            layout->setGap(10);
-            layout->ignoreInvisibleChildren(true);
+            Layout* layout;
+
+            if (centerMenu->getLayout()) {
+                layout = centerMenu->getLayout();
+            }
+            else {
+                layout = RowLayout::create();
+                RowLayout* rLayout = static_cast<RowLayout*>(layout);
+                rLayout->setGrowCrossAxis(true);
+                rLayout->setCrossAxisOverflow(false);
+                rLayout->setAxisAlignment(AxisAlignment::Center);
+                rLayout->setCrossAxisAlignment(AxisAlignment::Center);
+                rLayout->setCrossAxisLineAlignment(AxisAlignment::Center);
+                rLayout->setGap(10);
+                rLayout->ignoreInvisibleChildren(true);
+            }
 
             PageMenu* menuPage = PageMenu::create(typeinfo_cast<CCMenu*>(centerMenu), layout, 6);
             menuPage->scaleWhenFull();
