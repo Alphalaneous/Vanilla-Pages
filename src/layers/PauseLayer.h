@@ -11,13 +11,22 @@ class $modify(PagePauseLayer, PauseLayer) {
 
     LATE_MODIFY(PauseLayer::customSetup);
 
+    void modifyMenu(CCNode* menu) {
+        if (CCBool* dontModify = typeinfo_cast<CCBool*>(menu->getUserObject("dont-modify"_spr))){
+            if (dontModify->getValue()) {
+                return;
+            }
+        }
+        menu->ignoreAnchorPointForPosition(false);
+        menu->setContentSize({450, 85});
+    }
+
     void customSetup(){
         PauseLayer::customSetup();
 
         if(Mod::get()->getSettingValue<bool>("pause-layer-menu")){
             auto centerMenu = getChildByID("center-button-menu");
-            centerMenu->ignoreAnchorPointForPosition(false);
-            centerMenu->setContentSize({450, 85});
+            modifyMenu(centerMenu);
 
             int childrenCount = centerMenu->getChildrenCount();
 

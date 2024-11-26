@@ -1,3 +1,6 @@
+# 1.0.4
+- Allow mods to disable modifying pause content size
+
 # 1.0.3
 - Fix a bug
 - New hook prio
