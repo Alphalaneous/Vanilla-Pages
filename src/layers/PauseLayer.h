@@ -45,6 +45,7 @@ class $modify(PagePauseLayer, PauseLayer) {
                     rLayout->setCrossAxisLineAlignment(AxisAlignment::Center);
                     rLayout->setGap(10);
                     rLayout->ignoreInvisibleChildren(true);
+                    centerMenu->setLayout(rLayout);
                 }
                 static_cast<PageMenu*>(centerMenu)->setPaged(6, PageOrientation::HORIZONTAL, 450);
             }
