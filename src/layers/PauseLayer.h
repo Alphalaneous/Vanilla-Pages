@@ -24,32 +24,30 @@ class $modify(PagePauseLayer, PauseLayer) {
     void customSetup(){
         PauseLayer::customSetup();
 
-        if(Mod::get()->getSettingValue<bool>("pause-layer-menu")){
-            auto centerMenu = getChildByID("center-button-menu");
-            modifyMenu(centerMenu);
+        if (Mod::get()->getSettingValue<bool>("pause-layer-menu")) {
+            if (auto centerMenu = getChildByID("center-button-menu")) {
+                modifyMenu(centerMenu);
 
-            int childrenCount = centerMenu->getChildrenCount();
+                int childrenCount = centerMenu->getChildrenCount();
 
-            Layout* layout;
+                Layout* layout;
 
-            if (centerMenu->getLayout()) {
-                layout = centerMenu->getLayout();
+                if (centerMenu->getLayout()) {
+                    layout = centerMenu->getLayout();
+                }
+                else {
+                    layout = RowLayout::create();
+                    RowLayout* rLayout = static_cast<RowLayout*>(layout);
+                    rLayout->setGrowCrossAxis(true);
+                    rLayout->setCrossAxisOverflow(false);
+                    rLayout->setAxisAlignment(AxisAlignment::Center);
+                    rLayout->setCrossAxisAlignment(AxisAlignment::Center);
+                    rLayout->setCrossAxisLineAlignment(AxisAlignment::Center);
+                    rLayout->setGap(10);
+                    rLayout->ignoreInvisibleChildren(true);
+                }
+                static_cast<PageMenu*>(centerMenu)->setPaged(6, PageOrientation::HORIZONTAL, 450);
             }
-            else {
-                layout = RowLayout::create();
-                RowLayout* rLayout = static_cast<RowLayout*>(layout);
-                rLayout->setGrowCrossAxis(true);
-                rLayout->setCrossAxisOverflow(false);
-                rLayout->setAxisAlignment(AxisAlignment::Center);
-                rLayout->setCrossAxisAlignment(AxisAlignment::Center);
-                rLayout->setCrossAxisLineAlignment(AxisAlignment::Center);
-                rLayout->setGap(10);
-                rLayout->ignoreInvisibleChildren(true);
-            }
-
-            PageMenu* menuPage = PageMenu::create(typeinfo_cast<CCMenu*>(centerMenu), layout, 6);
-            menuPage->scaleWhenFull();
-            addChild(menuPage);
         }
     }
 };

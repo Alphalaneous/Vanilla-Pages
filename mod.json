@@ -1,5 +1,5 @@
 {
-	"geode": "4.0.1",
+	"geode": "4.1.1",
 	"gd": {
 		"win": "2.2074",
 		"android": "2.2074",
@@ -7,18 +7,18 @@
 	},
 	"id": "alphalaneous.vanilla_pages",
 	"name": "Vanilla Pages",
-	"version": "v1.0.4",
+	"version": "v1.0.5",
 	"developer": "Alphalaneous",
 	"description": "Adds Pages to Vanilla Menus",
 	"dependencies": [
         {
             "id": "geode.node-ids",
-            "version": ">=v1.15.0",
+            "version": ">=v1.18.0",
             "importance": "required"
         },
 		{
             "id": "alphalaneous.pages_api",
-            "version": ">=v1.3.2-alpha.1",
+            "version": ">=v1.4.0",
             "importance": "required"
         }
     ],

@@ -27,27 +27,22 @@ class $modify(PageEditorUI, EditorUI) {
 
     void createPageForTabs(std::string id) {
         if (auto tabsMenu = getChildByID(id.c_str())) {
-            auto toolbarTogglesMenu = getChildByID("toolbar-toggles-menu");
-            tabsMenu->setPositionY(toolbarTogglesMenu->getScaledContentSize().height);
-            tabsMenu->setAnchorPoint({0.5, 0});
-            CCSize winSize = CCDirector::get()->getWinSize();
+            if (auto toolbarTogglesMenu = getChildByID("toolbar-toggles-menu")) {
+                tabsMenu->setPositionY(toolbarTogglesMenu->getScaledContentSize().height);
+                tabsMenu->setAnchorPoint({0.5, 0});
+                CCSize winSize = CCDirector::get()->getWinSize();
 
-            float scale = tabsMenu->getScale();
+                float scale = tabsMenu->getScale();
 
-            float newWidth = 480 / scale;
+                float newWidth = 520 / scale;
 
-            tabsMenu->setContentSize({newWidth, 17.5});
+                tabsMenu->setContentSize({newWidth, 17.5});
 
-            PageMenu* menuPage = PageMenu::create(typeinfo_cast<CCMenu*>(tabsMenu), tabsMenu->getLayout(), std::ceil(14 / scale), true);
-            
-            float scaleFactor = winSize.width / menuPage->getTotalWidth();
+                PageMenu* pageMenu = static_cast<PageMenu*>(tabsMenu);
 
-            if(scaleFactor < 1) {
-                tabsMenu->setScale(scaleFactor);
+                pageMenu->setPaged(std::ceil(16 / scale), PageOrientation::HORIZONTAL, winSize.width);
+                pageMenu->setButtonScale(0.5f);
             }
-
-            menuPage->setArrowScale(0.70f);
-            addChild(menuPage);
         }
     }
 };

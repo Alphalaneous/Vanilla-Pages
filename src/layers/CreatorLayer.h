@@ -16,12 +16,11 @@ class $modify(PageCreatorLayer, CreatorLayer) {
             return false;
         }
 
-        if(Mod::get()->getSettingValue<bool>("creator-layer-menu")){
-            auto creatorButtonsMenu = getChildByID("creator-buttons-menu");
-            creatorButtonsMenu->setContentSize({450, 270});
-            PageMenu* menuPage = PageMenu::create(typeinfo_cast<CCMenu*>(creatorButtonsMenu), creatorButtonsMenu->getLayout(), 15, true);
-            
-            addChild(menuPage);
+        if (Mod::get()->getSettingValue<bool>("creator-layer-menu")) {
+            if (auto creatorButtonsMenu = getChildByID("creator-buttons-menu")) {
+                creatorButtonsMenu->setContentSize({450, 270});
+                static_cast<PageMenu*>(creatorButtonsMenu)->setPaged(15, PageOrientation::HORIZONTAL, 450);
+            }
         }
 
         return true;

@@ -16,24 +16,16 @@ class $modify(PageMenuLayer, MenuLayer) {
             return false;
         }
 
-        if(Mod::get()->getSettingValue<bool>("menulayer-bottom-menu")){
-            auto bottomMenu = getChildByID("bottom-menu");
-
-            PageMenu* menuPage = PageMenu::create(typeinfo_cast<CCMenu*>(bottomMenu), bottomMenu->getLayout(), 6);
-            menuPage->scaleWhenFull();
-            menuPage->setUniformScale(true);
-            addChild(menuPage);
+        if (Mod::get()->getSettingValue<bool>("menulayer-bottom-menu")) {
+            if (auto bottomMenu = getChildByID("bottom-menu")) {
+                static_cast<PageMenu*>(bottomMenu)->setPaged(6, PageOrientation::HORIZONTAL, 284);
+            }
         }
 
-        if(Mod::get()->getSettingValue<bool>("menulayer-right-menu")){
-            auto rightMenu = getChildByID("right-side-menu");
-
-            PageMenu* menuPageR = PageMenu::create(typeinfo_cast<CCMenu*>(rightMenu), rightMenu->getLayout(), 3);
-            menuPageR->setNavGap(2);
-            menuPageR->setOrientation(PageOrientation::VERTICAL);
-            menuPageR->scaleWhenFull();
-
-            addChild(menuPageR);
+        if (Mod::get()->getSettingValue<bool>("menulayer-right-menu")) {
+            if (auto rightMenu = getChildByID("right-side-menu")) {
+                static_cast<PageMenu*>(rightMenu)->setPaged(3, PageOrientation::VERTICAL, 180, -12);
+            }
         }
 
         return true;
