@@ -18,7 +18,12 @@ class $modify(PageMenuLayer, MenuLayer) {
 
         if (Mod::get()->getSettingValue<bool>("menulayer-bottom-menu")) {
             if (auto bottomMenu = getChildByID("bottom-menu")) {
-                static_cast<PageMenu*>(bottomMenu)->setPaged(6, PageOrientation::HORIZONTAL, 284);
+                
+                CCSize winSize = CCDirector::get()->getWinSize();
+                float maxWidth = winSize.width - 255; 
+                int elementCount = std::ceil(maxWidth / 52);
+
+                static_cast<PageMenu*>(bottomMenu)->setPaged(elementCount, PageOrientation::HORIZONTAL, maxWidth);
             }
         }
 

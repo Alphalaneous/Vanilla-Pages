@@ -1,3 +1,9 @@
+# 1.0.7
+- Fix CreatorLayer's menu and MenuLayer's bottom menu to be dynamic based on aspect ratio
+
+# 1.0.5 - 1.0.6
+- Pages API update
+
 # 1.0.4
 - Allow mods to disable modifying pause content size
 

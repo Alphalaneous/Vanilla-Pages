@@ -18,8 +18,8 @@ class $modify(PageCreatorLayer, CreatorLayer) {
 
         if (Mod::get()->getSettingValue<bool>("creator-layer-menu")) {
             if (auto creatorButtonsMenu = getChildByID("creator-buttons-menu")) {
-                creatorButtonsMenu->setContentSize({450, 270});
-                static_cast<PageMenu*>(creatorButtonsMenu)->setPaged(15, PageOrientation::HORIZONTAL, 450);
+                CCSize winSize = CCDirector::get()->getWinSize();
+                static_cast<PageMenu*>(creatorButtonsMenu)->setPaged(15, PageOrientation::HORIZONTAL, winSize.width - 10);
             }
         }
 
