@@ -1,3 +1,6 @@
+# 1.0.8
+- Fix LevelInfoLayer's having wrong copy button position
+
 # 1.0.7
 - Fix CreatorLayer's menu and MenuLayer's bottom menu to be dynamic based on aspect ratio
 

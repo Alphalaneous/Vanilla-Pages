@@ -15,18 +15,29 @@ class $modify(PageLevelInfoLayer, LevelInfoLayer) {
         PageMenu* m_leftSidePage;
     };
 
+    void setPages() {
+        if (Mod::get()->getSettingValue<bool>("levelinfolayer-left-menu")){
+            if (auto leftSideMenu = getChildByID("left-side-menu")) {
+                static_cast<PageMenu*>(leftSideMenu)->setPaged(3, PageOrientation::VERTICAL, 150);
+            }
+        }
+    }
+
     bool init(GJGameLevel* level, bool challenge){
         if (!LevelInfoLayer::init(level, challenge)) {
             return false;
         }
-
         if (Mod::get()->getSettingValue<bool>("levelinfolayer-left-menu")){
             if (auto leftSideMenu = getChildByID("left-side-menu")) {
                 leftSideMenu->setPosition({leftSideMenu->getPosition().x, leftSideMenu->getPosition().y + 20});
-                static_cast<PageMenu*>(leftSideMenu)->setPaged(3, PageOrientation::VERTICAL, 150);
             }
         }
-
+        setPages();
         return true;
+    }
+
+    void levelDownloadFinished(GJGameLevel* p0) {
+        LevelInfoLayer::levelDownloadFinished(p0);
+        setPages();
     }
 };
