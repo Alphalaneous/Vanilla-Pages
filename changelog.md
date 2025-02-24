@@ -1,3 +1,6 @@
+# 1.0.9
+- Add tags
+
 # 1.0.8
 - Fix LevelInfoLayer's having wrong copy button position
 
