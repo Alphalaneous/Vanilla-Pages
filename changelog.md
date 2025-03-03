@@ -1,3 +1,6 @@
+# 1.1.0
+- Add Pages for GJGarageLayer's left menu and PauseLayer's right menu
+
 # 1.0.9
 - Add tags
 

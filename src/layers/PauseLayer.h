@@ -24,6 +24,24 @@ class $modify(PagePauseLayer, PauseLayer) {
     void customSetup(){
         PauseLayer::customSetup();
 
+        if (Mod::get()->getSettingValue<bool>("pause-layer-right-menu")) {
+            if (auto rightMenu = getChildByID("right-button-menu")) {
+                rightMenu->setContentHeight(140);
+                int childrenCount = rightMenu->getChildrenCount();
+                if (childrenCount > 4) {
+                    rightMenu->setPositionY(rightMenu->getPositionY() - 20);
+                }
+                PageMenu* pageMenu = static_cast<PageMenu*>(rightMenu);
+                pageMenu->setPaged(4, PageOrientation::VERTICAL, 195);
+                pageMenu->setFixed(30);
+                pageMenu->setButtonScale(0.5f);
+
+                if (AxisLayout* layout = typeinfo_cast<AxisLayout*>(rightMenu->getLayout())) {
+                    layout->setAxisAlignment(AxisAlignment::Center);
+                }
+                rightMenu->updateLayout();
+            }
+        }
         if (Mod::get()->getSettingValue<bool>("pause-layer-menu")) {
             if (auto centerMenu = getChildByID("center-button-menu")) {
                 modifyMenu(centerMenu);
