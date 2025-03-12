@@ -1,3 +1,6 @@
+# 1.1.1
+- Remove support for the MenuLayer Bottom Menu
+
 # 1.1.0
 - Add Pages for GJGarageLayer's left menu and PauseLayer's right menu
 
