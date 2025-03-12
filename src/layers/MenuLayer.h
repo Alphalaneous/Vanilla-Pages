@@ -16,7 +16,7 @@ class $modify(PageMenuLayer, MenuLayer) {
             return false;
         }
 
-        /*if (Mod::get()->getSettingValue<bool>("menulayer-bottom-menu")) {
+        if (Mod::get()->getSettingValue<bool>("menulayer-bottom-menu")) {
             if (auto bottomMenu = getChildByID("bottom-menu")) {
                 
                 CCSize winSize = CCDirector::get()->getWinSize();
@@ -25,7 +25,7 @@ class $modify(PageMenuLayer, MenuLayer) {
 
                 static_cast<PageMenu*>(bottomMenu)->setPaged(elementCount, PageOrientation::HORIZONTAL, maxWidth);
             }
-        }*/
+        }
 
         if (Mod::get()->getSettingValue<bool>("menulayer-right-menu")) {
             if (auto rightMenu = getChildByID("right-side-menu")) {

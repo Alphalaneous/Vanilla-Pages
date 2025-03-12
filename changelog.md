@@ -1,3 +1,6 @@
+# 1.1.2
+- Geode fixed the bug, it's back now
+
 # 1.1.1
 - Remove support for the MenuLayer Bottom Menu
 

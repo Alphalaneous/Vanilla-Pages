@@ -1,5 +1,5 @@
 {
-	"geode": "4.2.0",
+	"geode": "4.3.0",
 	"gd": {
 		"win": "2.2074",
 		"android": "2.2074",
@@ -7,7 +7,7 @@
 	},
 	"id": "alphalaneous.vanilla_pages",
 	"name": "Vanilla Pages",
-	"version": "v1.1.1",
+	"version": "v1.1.2",
 	"developer": "Alphalaneous",
 	"description": "Adds Pages to Vanilla Menus",
 	"dependencies": [
@@ -31,6 +31,12 @@
         "menulayer-right-menu": {
             "name": "MenuLayer Right Menu",
             "description": "Enable pages on the right menu of the MenuLayer",
+            "type": "bool",
+            "default": true
+        },
+        "menulayer-bottom-menu": {
+            "name": "MenuLayer Bottom Menu",
+            "description": "Enable pages on the bottom menu of the MenuLayer",
             "type": "bool",
             "default": true
         },
