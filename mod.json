@@ -1,13 +1,14 @@
 {
-	"geode": "4.3.0",
+	"geode": "4.3.1",
 	"gd": {
 		"win": "2.2074",
 		"android": "2.2074",
-		"mac": "2.2074"
+		"mac": "2.2074",
+		"ios": "2.2074"
 	},
 	"id": "alphalaneous.vanilla_pages",
 	"name": "Vanilla Pages",
-	"version": "v1.1.2",
+	"version": "v1.1.3",
 	"developer": "Alphalaneous",
 	"description": "Adds Pages to Vanilla Menus",
 	"dependencies": [

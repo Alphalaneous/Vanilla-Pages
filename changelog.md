@@ -1,3 +1,6 @@
+# 1.1.3
+- iOS support
+
 # 1.1.2
 - Geode fixed the bug, it's back now
 
